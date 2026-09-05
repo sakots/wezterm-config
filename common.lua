@@ -57,8 +57,6 @@ function module.apply_to_config(config)
   config.keys = keybinds.keys
   config.key_tables = keybinds.key_tables
 
-  -- ラウンチメニュー
-  config.launch_menu = require 'launch_menu'
 end
 
 return module

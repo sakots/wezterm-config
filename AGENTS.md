@@ -13,6 +13,9 @@ OSがWindowsなら`profiles/windows/`を、
 別プロファイルの`alt.lua`、OS固有の共通設定の`common.lua`を配置する。
 ルートの`common.lua`は全OS・全プロファイルの共通設定。
 
+Windows用のラウンチメニューは`profiles/windows/launch_menu.lua`に配置し、
+`profiles/windows/common.lua`から読み込む。
+
 `wezterm.lua`はOS別の`main.lua`、ルートの`common.lua`、
 OS別の`common.lua`の順に読み込む。
 
