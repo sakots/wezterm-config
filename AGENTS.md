@@ -6,9 +6,15 @@
 
 ## ファイル構成
 
-`wezterm.lua`から、OSがwindowsなら`profiles/windows.lua`を、
-そうでないならubuntuと判断し`profiles/ubuntu.lua`を読み込む。
+OSがWindowsなら`profiles/windows/`を、
+そうでないならUbuntuと判断し`profiles/ubuntu/`を使用する。
 
-`wezterm-alt.lua`は起動オプションで起動する別のプロファイルである。
-こちらで起動した場合`profiles/main.lua`のかわりに`profiles/alt.lua`を読み込む。
-`common.lua`は共通設定。
+各OSのディレクトリには、通常プロファイルの`main.lua`、
+別プロファイルの`alt.lua`、OS固有の共通設定の`common.lua`を配置する。
+ルートの`common.lua`は全OS・全プロファイルの共通設定。
+
+`wezterm.lua`はOS別の`main.lua`、ルートの`common.lua`、
+OS別の`common.lua`の順に読み込む。
+
+`wezterm-alt.lua`は起動オプションで指定する別のプロファイルである。
+ルートの`common.lua`、OS別の`alt.lua`、OS別の`common.lua`の順に読み込む。
