@@ -4,9 +4,6 @@ local module = {}
 
 function module.apply_to_config(config)
 
-  -- デフォルトで PowerShell を起動
-  config.default_prog = { "pwsh.exe", "-NoLogo" }
-
   -- ウィンドウサイズ
   config.initial_cols = 120
   config.initial_rows = 32
