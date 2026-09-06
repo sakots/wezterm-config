@@ -1,9 +1,9 @@
 return {
   {
-    label = 'FMVA-shell',
+    label = 'SASAME-shell',
     args = {
       'ssh',
-      'FMVA-shell',
+      'SASAME-shell',
     },
   },
 }
