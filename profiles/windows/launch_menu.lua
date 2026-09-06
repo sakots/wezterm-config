@@ -1,9 +1,9 @@
 return {
   {
-    label = 'FMVA-shell',
+    label = 'SASAME-shell',
     args = {
       'C:\\Windows\\System32\\OpenSSH\\ssh.exe',
-      'FMVA-shell',
+      'SASAME-shell',
     },
   },
 }
