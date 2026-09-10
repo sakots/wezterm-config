@@ -12,7 +12,7 @@ function module.apply_to_config(config)
   --config.window_decorations = "RESIZE"
 
   -- 背景
-  config.window_background_opacity = 0.65
+  config.window_background_opacity = 0.84
   config.macos_window_background_blur = 30
   config.win32_system_backdrop = 'Acrylic'
 

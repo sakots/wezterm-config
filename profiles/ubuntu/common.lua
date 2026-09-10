@@ -6,7 +6,6 @@ function M.apply_to_config(config)
   -- enable_waylandの変更はWezTermの再起動後に反映される
   config.enable_wayland = false
   config.window_decorations = "TITLE | RESIZE"
-  config.window_background_opacity = 0.84
 end
 
 return M
