@@ -57,6 +57,25 @@ function module.apply_to_config(config)
   config.keys = keybinds.keys
   config.key_tables = keybinds.key_tables
 
+  -- Windows・Ubuntu共通: マウスで選択し終えたらクリップボードへコピー
+  config.mouse_bindings = {
+    {
+      event = { Up = { streak = 1, button = 'Left' } },
+      mods = 'NONE',
+      action = wezterm.action.CompleteSelectionOrOpenLinkAtMouseCursor 'ClipboardAndPrimarySelection',
+    },
+    {
+      event = { Up = { streak = 2, button = 'Left' } },
+      mods = 'NONE',
+      action = wezterm.action.CompleteSelection 'ClipboardAndPrimarySelection',
+    },
+    {
+      event = { Up = { streak = 3, button = 'Left' } },
+      mods = 'NONE',
+      action = wezterm.action.CompleteSelection 'ClipboardAndPrimarySelection',
+    },
+  }
+
 end
 
 return module

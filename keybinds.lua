@@ -1,15 +1,6 @@
 local wezterm = require 'wezterm'
 local act = wezterm.action
 
-local copy_or_interrupt = wezterm.action_callback(function(window, pane)
-  if window:get_selection_text_for_pane(pane) ~= '' then
-    window:perform_action(act.CopyTo 'ClipboardAndPrimarySelection', pane)
-    window:perform_action(act.ClearSelection, pane)
-  else
-    window:perform_action(act.SendKey { key = 'c', mods = 'CTRL' }, pane)
-  end
-end)
-
 return {
   keys = {
     { key = 'Tab', mods = 'CTRL', action = act.ActivateTabRelative(1) },
@@ -100,8 +91,7 @@ return {
     { key = '^', mods = 'SHIFT|CTRL', action = act.ActivateTab(5) },
     { key = '_', mods = 'CTRL', action = act.DecreaseFontSize },
     { key = '_', mods = 'SHIFT|CTRL', action = act.DecreaseFontSize },
-    -- 選択中はコピーし、未選択時は端末へ Ctrl+C を渡してキャンセルする
-    { key = 'c', mods = 'CTRL', action = copy_or_interrupt },
+    -- Ctrl+Cは割り当てず、端末へそのまま渡す
     { key = 'c', mods = 'SHIFT|CTRL', action = act.CopyTo 'Clipboard' },
     { key = 'c', mods = 'SUPER', action = act.CopyTo 'Clipboard' },
     { key = 'f', mods = 'SHIFT|CTRL', action = act.Search 'CurrentSelectionOrEmptyString' },
