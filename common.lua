@@ -57,22 +57,31 @@ function module.apply_to_config(config)
   config.keys = keybinds.keys
   config.key_tables = keybinds.key_tables
 
-  -- Windows・Ubuntu共通: マウスで選択し終えたらクリップボードへコピー
+  -- Windows・Ubuntu共通: マウスで選択し終えたらコピーして選択範囲を解除
   config.mouse_bindings = {
     {
       event = { Up = { streak = 1, button = 'Left' } },
       mods = 'NONE',
-      action = wezterm.action.CompleteSelectionOrOpenLinkAtMouseCursor 'ClipboardAndPrimarySelection',
+      action = wezterm.action.Multiple {
+        wezterm.action.CompleteSelectionOrOpenLinkAtMouseCursor 'ClipboardAndPrimarySelection',
+        wezterm.action.ClearSelection,
+      },
     },
     {
       event = { Up = { streak = 2, button = 'Left' } },
       mods = 'NONE',
-      action = wezterm.action.CompleteSelection 'ClipboardAndPrimarySelection',
+      action = wezterm.action.Multiple {
+        wezterm.action.CompleteSelection 'ClipboardAndPrimarySelection',
+        wezterm.action.ClearSelection,
+      },
     },
     {
       event = { Up = { streak = 3, button = 'Left' } },
       mods = 'NONE',
-      action = wezterm.action.CompleteSelection 'ClipboardAndPrimarySelection',
+      action = wezterm.action.Multiple {
+        wezterm.action.CompleteSelection 'ClipboardAndPrimarySelection',
+        wezterm.action.ClearSelection,
+      },
     },
   }
 
